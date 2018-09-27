@@ -72,7 +72,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <span class="navbar-brand"><img src="~/Content/img/logo.png" alt=""></span>
+                        <a href="/Home/Index" class="navbar-brand"><img src="~/Content/img/logo.png" alt=""></a>
                     </header>
 
 
@@ -130,17 +130,28 @@
 
                         <!-- .nav -->
                         <ul class="nav navbar-nav">
-                            <li><a href="dashboard.html">Dashboard</a></li>
-                            <li><a href="table.html">Tables</a></li>
+                            @*<li><a href="dashboard.html">Dashboard</a></li>
+                            <li><a href="table.html">Tables</a></li>*@
                             <li class='dropdown '>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     Form Elements <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="form-general.html">General</a></li>
-                                    <li><a href="form-validation.html">Validation</a></li>
-                                    <li><a href="form-wysiwyg.html">WYSIWYG</a></li>
-                                    <li><a href="form-wizard.html">Wizard &amp; File Upload</a></li>
+                                    <li><a href="form-general.html">Build New Flow</a></li>
+                                    <li><a href="form-validation.html">Build Successor</a></li>
+                                    <li><a href="form-wysiwyg.html">Build Predecessor</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="table.html">Locate</a></li>
+                            <li class='dropdown '>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Settings <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="form-general.html">Source Lib</a></li>
+                                    <li><a href="form-validation.html">Local Lib</a></li>
+                                    <li><a href="form-wysiwyg.html">Rule Setting</a></li>
+                                    <li><a href="form-wizard.html">Refresh Data</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -225,10 +236,7 @@
         </div>
         <!-- /#right -->
     </div>
-    <!-- /#wrap -->
-    <footer class="Footer bg-dark dker">
-        <p>2018 &copy; CSTC Custody Secore dev team v0.1.0</p>
-    </footer>
+    
     <!-- /#footer -->
     <!-- #helpModal -->
     <div id="helpModal" class="modal fade">

@@ -8,6 +8,7 @@
     <meta charset="utf-8">  
 </head>
 <body>
+    <!--Main canvas-->
     <div id="chart-container">
         <div class="jumbotron">
             <div class="container">
@@ -18,7 +19,7 @@
             </div>
         </div>
     </div>   
-    <!-- 模态框（Modal） -->
+    <!--  Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -27,18 +28,18 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        模态框（Modal）标题
+                        Build new flow
                     </h4>
                 </div>
                 <div class="modal-body">
-                    在这里添加一些文本
+                    <input id="ipt_buildnew" class="form-control" type="text" required="required"/>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        关闭
-                    </button>
+                <div class="modal-footer">                    
                     <button type="button" id="submit-build-new" class="btn btn-primary">
-                        提交更改
+                        <i class="fa fa-check-circle"></i>Build
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
                     </button>
                 </div>
             </div><!-- /.modal-content -->

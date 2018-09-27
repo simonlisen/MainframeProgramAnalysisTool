@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#chart-container{
+    width: 100%;
+    height:auto;
+    min-height:900px;
+}

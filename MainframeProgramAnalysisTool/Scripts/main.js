@@ -17,12 +17,10 @@ $(document).on('click', '#submit-build-new', function () {
     $('#myModal').modal('hide')
     clearChart();  
 
-    var datasource = {
-        
-    };
+    var filename = $('#ipt_buildnew').val().trim();
 
     $.ajax({
-        url: "/Build/GetDataByFileName?filename=seba000",
+        url: "/Build/GetDataByFileName?filename=" + filename,
         type: 'GET',
         dataType: 'json',
         success: function (result) {
