@@ -173,6 +173,7 @@
     <Content Include="Content\orgchart\orgchart.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Generated\seba000.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -236,7 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Generated\" />
     <Folder Include="Views\Build\" />
   </ItemGroup>
   <ItemGroup>
