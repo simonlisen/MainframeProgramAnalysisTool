@@ -99,7 +99,9 @@ $(document).on('click', '#submit-locate-node', function () {
     var nodeName = $('#ipt-locate-node').val().trim();
     var target = $('[data-name="' + nodeName + '"]');
     if (target.length >= 1) {
-        $("#chart-container").scrollTo(target, 250, { offset: { top: -50, left: -100 } });
+        $("#chart-container").scrollTo(target, 250, { offset: { top: "-50px", left: "-100px" } });
+        //$("#chart-container").scrollTo(target, 250, { offset: -50 });
+        target.closest('.title').css('background-color','orange');
         $('.modal-build').modal('hide');
     } else {
         $('#locate-comment').html("Node not found.");
