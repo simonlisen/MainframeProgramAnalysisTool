@@ -2,7 +2,7 @@
                 "name": "Lao Lao",
                 "title": "general manager",
                 "children": [
-                    { "name": "Bo Miao Test", "title": "1$TestRate0001$TestProcs-The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also adds .modal-open to the <body> to override default scrolling behavior and generates a .modal-backdrop to provide a click area for dismissing shown modals when clicking outside the modal.$Test Jcls - The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also adds .modal-open to the <body> to override default scrolling behavior and generates a .modal-backdrop to provide a click area for dismissing shown modals when clicking outside the modal.$desc" },
+                    { "name": "Bo Miao Test", "title": "Y$TestRate0001$TestProcs-The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also adds .modal-open to the <body> to override default scrolling behavior and generates a .modal-backdrop to provide a click area for dismissing shown modals when clicking outside the modal.$Test Jcls - The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also adds .modal-open to the <body> to override default scrolling behavior and generates a .modal-backdrop to provide a click area for dismissing shown modals when clicking outside the modal.$desc" },
                     {
                         "name": "Su Miao", "title": "department manager",
                         "children": [
@@ -140,7 +140,7 @@
                                     }
                                 ]
                             },
-                            { "name": "Hong Miao", "title": "department manager" }
+                            { "name": "Simon", "title": "department manager" }
                         ]}
                 ]
             }

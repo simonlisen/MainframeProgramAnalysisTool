@@ -24,9 +24,10 @@ textarea {
 }
 
 #chart-container{
-    width: 100%;
+    width: auto;
     height:auto;
     min-height:900px;
+    overflow: scroll;
 }
 
 .info-btn{
@@ -37,3 +38,7 @@ textarea {
 
 }
 
+#details-comment{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+}

@@ -15,12 +15,12 @@
                 <h1>Welcome to MPAT </h1>
                 <h2>Mainframe Program Analysis Tool</h2>
                 <p>This is a simple tool, which is a simple jumbotron-style component for calling extra attention to featured content or information. It could help you xxx whatever...</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#myModal">Let's go</a></p>
+                <p>Choose an opreation on navigation bar to start.</p>
             </div>
         </div>
     </div>   
     <!--  Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal modal-build fade" id="modal-successor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -28,14 +28,41 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        Build new flow
+                        Build Successor
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <input id="ipt_buildnew" class="form-control" type="text" required="required"/>
+                    <input id="ipt-build-successor" class="form-control" type="text" required="required"/>
                 </div>
                 <div class="modal-footer">                    
-                    <button type="button" id="submit-build-new" class="btn btn-primary">
+                    <button type="button" id="submit-build-successor" class="btn btn-primary">
+                        <i class="fa fa-check-circle"></i>Build
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!--  Modal -->
+    <div class="modal modal-build fade" id="modal-predecessor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Build Predecessor
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <input id="ipt-build-predecessor" class="form-control" type="text" required="required" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="submit-build-predecessor" class="btn btn-primary">
                         <i class="fa fa-check-circle"></i>Build
                     </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -47,7 +74,7 @@
     </div>
 
     @*detail modal*@
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -63,6 +90,7 @@
                             <textarea rows="4" cols="200" class="form-control detail-field" id="details-jcls" readonly="readonly"></textarea>
                             <label for="message-text" class="form-control-label">Description</label>
                             <textarea rows="7" cols="200" class="form-control detail-field" id="details-desc" readonly="readonly"></textarea>
+                            <text id="details-comment"></text>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -72,6 +100,35 @@
         </div>
     </div>
     @*detail modal*@
+
+    @*locate modal*@
+    <div class="modal modal-build fade" id="locateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Locate Node
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <input id="ipt-locate-node" class="form-control" type="text" required="required" />
+                    <text id="locate-comment"></text>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="submit-locate-node" class="btn btn-primary">
+                        <i class="fa fa-check-circle"></i>Locate
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    @*locate modal*@
 </body>
 </html>
 

@@ -215,6 +215,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\screenfull\screenfull.js" />
+    <Content Include="Scripts\scrollTo\jquery.scrollTo.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
