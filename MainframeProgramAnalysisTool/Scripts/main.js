@@ -45,6 +45,7 @@ $(document).on('click', '#submit-build-successor', function () {
         dataType: 'json',
         success: function (result) {
             var jsonResult = JSON.parse(result);
+            $('#chart-container').css('text-align', 'left');
             $('#chart-container').orgchart({
                 'data': jsonResult,
                 'nodeContent': 'title',//'title'
@@ -76,16 +77,17 @@ $(document).on('click', '#submit-build-predecessor', function () {
         dataType: 'json',
         success: function (result) {
             var jsonResult = JSON.parse(result);
+            $('#chart-container').css('text-align', 'right');
             $('#chart-container').orgchart({
                 'data': jsonResult,
                 'nodeContent': 'title',//'title'
-                'direction': 'b2t',
+                'direction': 'r2l',
                 'nodeTemplate': nodeTemplate
 
             });
             $('.orgchart').addClass('noncollapsable');
-            $("#chart-container").css("overflow-x", "auto");
-            $("#chart-container").css("overflow-y", "auto");
+            //$("#chart-container").css("overflow-x", "auto");
+            //$("#chart-container").css("overflow-y", "auto");
         }
     });
 
@@ -95,13 +97,13 @@ $(document).on('click', '#submit-build-predecessor', function () {
 $(document).on('click', '#submit-locate-node', function () {
     event.stopPropagation();
     event.preventDefault();    
-
+    $('.orgchart .node .title').css('background-color', 'rgba(42, 100, 150, 0.8)');
     var nodeName = $('#ipt-locate-node').val().trim();
     var target = $('[data-name="' + nodeName + '"]');
     if (target.length >= 1) {
         $("#chart-container").scrollTo(target, 250, { offset: { top: "-50px", left: "-100px" } });
         //$("#chart-container").scrollTo(target, 250, { offset: -50 });
-        target.closest('.title').css('background-color','orange');
+        target.closest('.title').css('background-color','rgba(255, 0, 0, 0.8)');
         $('.modal-build').modal('hide');
     } else {
         $('#locate-comment').html("Node not found.");
@@ -133,6 +135,10 @@ $('#detailModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body #details-desc').val(desc)
 
     var str = "*This program has successor, and it's already drawed in first display."
-    modal.find('.modal-body #details-comment').html(str);
+    if (flagdata == 'Y') {
+        modal.find('.modal-body #details-comment').html(str);
+    } else{
+        modal.find('.modal-body #details-comment').html('');
+    }    
 })
 
