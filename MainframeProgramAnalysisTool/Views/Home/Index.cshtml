@@ -45,6 +45,33 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
+
+    @*detail modal*@
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailModalLabel">Node Detail</h5>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="message-text" class="form-control-label">Rate</label>
+                            <input class="form-control detail-field" id="details-rate" readonly="readonly">
+                            <label for="message-text" class="form-control-label">Procs</label>
+                            <textarea rows="4" cols="200" class="form-control detail-field" id="details-procs" readonly="readonly"></textarea>
+                            <label for="message-text" class="form-control-label">Jcls</label>
+                            <textarea rows="4" cols="200" class="form-control detail-field" id="details-jcls" readonly="readonly"></textarea>
+                            <label for="message-text" class="form-control-label">Description</label>
+                            <textarea rows="7" cols="200" class="form-control detail-field" id="details-desc" readonly="readonly"></textarea>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*detail modal*@
 </body>
 </html>
 
