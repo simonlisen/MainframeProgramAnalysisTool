@@ -13,5 +13,23 @@ namespace MainframeProgramAnalysisTool.Controllers
         {
             return View();
         }
+
+        public ActionResult Validation()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Validation(string name, string password)
+        {
+            if (name == "admin" && password == "123")
+            {
+                return View("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }
