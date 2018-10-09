@@ -50,12 +50,12 @@ $(document).on('click', '#submit-build-successor', function () {
                 'data': jsonResult,
                 'nodeContent': 'title',//'title'
                 'direction': 'l2r',
-                'nodeTemplate': nodeTemplate
+                'nodeTemplate': nodeTemplate,
+                'pan': true,
+                'zoom': true
                
             });
-            $('.orgchart').addClass('noncollapsable');
-            $("#chart-container").css("overflow-x", "auto");
-            $("#chart-container").css("overflow-y", "auto");
+            $('.orgchart').addClass('noncollapsable');           
         }        
     });
     
@@ -82,12 +82,12 @@ $(document).on('click', '#submit-build-predecessor', function () {
                 'data': jsonResult,
                 'nodeContent': 'title',//'title'
                 'direction': 'r2l',
-                'nodeTemplate': nodeTemplate
+                'nodeTemplate': nodeTemplate,
+                'pan': true,
+                'zoom': true
 
             });
             $('.orgchart').addClass('noncollapsable');
-            //$("#chart-container").css("overflow-x", "auto");
-            //$("#chart-container").css("overflow-y", "auto");
         }
     });
 

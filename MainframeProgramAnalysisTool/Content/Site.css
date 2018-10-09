@@ -46,3 +46,7 @@ textarea {
 .highlight-border {
     border: 2px solid yellow;
 }
+
+.lter {
+    min-height: 900px;
+}
