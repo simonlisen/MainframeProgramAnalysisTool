@@ -65,14 +65,14 @@
                         <div class="btn-group">
                             <a data-placement="bottom" data-original-title="Clear Chart" data-toggle="tooltip"
                                class="btn btn-default btn-sm" id="clearChart">
-                                <i class="fa fa-address-book-o"></i>
+                                <!--<i class="fa fa-address-book-o"></i>-->
                                 Clear Chart
                             </a>
                         </div>
                         <div class="btn-group">
                             <a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip"
                                class="btn btn-default btn-sm" id="toggleFullScreen">
-                                <i class="fa fa-check-circle"></i>
+                                <!--<i class="fa fa-check-circle"></i>-->
                                 Toggle Fullscreen
                             </a>
                         </div>
@@ -149,10 +149,11 @@
                                 </div>
                                 <div class="modal-body">
                                     <input id="ipt-build-successor" class="form-control" type="text" required="required" />
+                                    <div id="comment-build-successor" hidden="hidden">Error: File not found. Please input a vaild filename and try again.</div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" id="submit-build-successor" class="btn btn-primary">
-                                        <i class="fa fa-check-circle"></i>Build
+                                      Build
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancel
@@ -176,10 +177,11 @@
                                 </div>
                                 <div class="modal-body">
                                     <input id="ipt-build-predecessor" class="form-control" type="text" required="required" />
+                                    <div id="comment-build-predecessor" hidden="hidden">Error: File not found. Please input a vaild filename and try again.</div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" id="submit-build-predecessor" class="btn btn-primary">
-                                        <i class="fa fa-check-circle"></i>Build
+                                        Build
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancel
@@ -235,7 +237,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" id="submit-locate-node" class="btn btn-primary">
-                                        <i class="fa fa-check-circle"></i>Locate
+                                       Locate
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancel

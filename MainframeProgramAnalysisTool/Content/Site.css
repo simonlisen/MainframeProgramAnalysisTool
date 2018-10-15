@@ -54,3 +54,7 @@ textarea {
 .float-right {
     float: right;
 }
+
+#comment-build-predecessor{
+    color:red;
+}

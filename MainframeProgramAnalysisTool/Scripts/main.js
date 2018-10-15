@@ -36,16 +36,20 @@ $(document).on('click', '#clearChart', function () {
 $(document).on('click', '#submit-build-successor', function () {
     event.stopPropagation();
     event.preventDefault();    
-    $('.modal-build').modal('hide')
-    clearChart();  
-    var filename = $('#ipt-build-successor').val().trim();
-
+    
+    var filename = $('#ipt-build-successor').val().toUpperCase().trim();
     $.ajax({
        // url: "/Build/GetDataByFileName?filename=" + filename,
         url: "./Generated/" + filename + ".txt",
         type: 'GET',
         dataType: 'json',
+        error: function (error) {
+            $('#ipt-build-successor').val('');
+            $('#comment-build-successor').fadeIn(1000).fadeOut(2000);
+        },
         success: function (result) {
+            $('.modal-build').modal('hide')
+            clearChart();
             //var jsonResult = JSON.parse(result);
             var jsonResult = result;
             var chart = $('#chart-container');
@@ -56,8 +60,7 @@ $(document).on('click', '#submit-build-successor', function () {
                     'nodeContent': 'title',//'title'
                     'direction': 'l2r',
                     'nodeTemplate': nodeTemplate,
-                    'pan': true,
-                    'zoom': true
+                    'pan': true
                 });
                 chart.attr('data-loaded', 'true');
             } else {
@@ -66,8 +69,7 @@ $(document).on('click', '#submit-build-successor', function () {
                     'nodeContent': 'title',//'title'
                     'direction': 'l2r',
                     'nodeTemplate': nodeTemplate,
-                    'pan': true,
-                    'zoom': true                   
+                    'pan': true                   
                 });
             }                       
             $('.orgchart').addClass('noncollapsable');           
@@ -81,17 +83,21 @@ $(document).on('click', '#submit-build-successor', function () {
 $(document).on('click', '#submit-build-predecessor', function () {
     event.stopPropagation();
     event.preventDefault();
-    $('.modal-build').modal('hide')
-    clearChart();
-
-    var filename = $('#ipt-build-predecessor').val().trim(); 
+   
+    var filename = $('#ipt-build-predecessor').val().toUpperCase().trim();
 
     $.ajax({
         // url: "/Build/GetDataByFileName?filename=" + filename,
         url: "./Generated/" + filename + ".txt",
         type: 'GET',
         dataType: 'json',
+        error: function (error) {
+            $('#ipt-build-predecessor').val('');
+            $('#comment-build-predecessor').fadeIn(1000).fadeOut(2000);                     
+        },
         success: function (result) {
+            $('.modal-build').modal('hide')
+            clearChart();
             //var jsonResult = JSON.parse(result);
             var jsonResult = result;
             var chart = $('#chart-container');
@@ -102,8 +108,7 @@ $(document).on('click', '#submit-build-predecessor', function () {
                     'nodeContent': 'title',//'title'
                     'direction': 'r2l',
                     'nodeTemplate': nodeTemplate,
-                    'pan': true,
-                    'zoom': true
+                    'pan': true
                 });
                 chart.attr('data-loaded', 'true');
             } else {
@@ -112,15 +117,13 @@ $(document).on('click', '#submit-build-predecessor', function () {
                     'nodeContent': 'title',//'title'
                     'direction': 'r2l',
                     'nodeTemplate': nodeTemplate,
-                    'pan': true,
-                    'zoom': true
+                    'pan': true
                 });
             }
             $('.orgchart').addClass('noncollapsable');
         }
     });
-
-
+   
 });
 
 //locate node
