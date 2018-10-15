@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--IE Compatibility modes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Mobile first-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Mainframe Program Analysis Tool</title>
+
+    <meta name="description" content="Mainframe Program Analysis Tool">
+    <meta name="author" content="Simon Li">
+
+    
+    <!--jQuery ********** -->
+    <script src="./Scripts/jquery-1.10.2.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./Content/bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./Content/font-awesome/css/font-awesome.css">
+
+    <!-- Metis core stylesheet -->
+    <link rel="stylesheet" href="./Content/metis/main.css">
+
+    <!-- metisMenu stylesheet -->
+    <link rel="stylesheet" href="./Content/metismenu/metisMenu.css">
+
+    <!-- onoffcanvas stylesheet -->
+    <link rel="stylesheet" href="./Content/onoffcanvas/onoffcanvas.css">
+
+    <!-- animate.css stylesheet -->
+    <link rel="stylesheet" href="./Content/animate.css/animate.css">
+
+    <!-- orgchart stylesheet -->
+    <link rel="stylesheet" href="./Content/orgchart/orgchart.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--For Development Only. Not required -->
+
+    <link rel="stylesheet" href="./Content/metis/style-switcher.css">
+    <link rel="stylesheet/less" type="text/css" href="./Content/metis/theme.less">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script>
+</head>
+<body class="  ">
+    <div class="bg-dark dk" id="wrap">
+        <div id="top">
+            <!-- .navbar -->
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container-fluid">
+
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <span class="navbar-header">                       
+                        <a href="#" class="navbar-brand"><img src="./Content/img/logo.png" alt=""></a>
+                    </span>
+                    
+                    <div class="topnav">
+                        <div class="btn-group">
+                            <a data-placement="bottom" data-original-title="Clear Chart" data-toggle="tooltip"
+                               class="btn btn-default btn-sm" id="clearChart">
+                                <i class="fa fa-address-book-o"></i>
+                                Clear Chart
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip"
+                               class="btn btn-default btn-sm" id="toggleFullScreen">
+                                <i class="fa fa-check-circle"></i>
+                                Toggle Fullscreen
+                            </a>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                        <!-- .nav -->
+                        <ul class="nav navbar-nav">
+
+                            <li class='dropdown '>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Actions <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" data-toggle="modal" data-target="#modal-successor">Build Successor</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#modal-predecessor">Build Predecessor</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" data-toggle="modal" data-target="#locateModal">Locate</a></li>
+
+                            <li><a href="/Admin/Validation">Admin</a></li>
+
+                        </ul>
+                        <!-- /.nav -->
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <!-- /.navbar -->
+
+        </div>
+        <!-- /#top -->
+
+        <div id="content">
+
+            <div class="bg-light lter">
+
+
+
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="utf-8">
+                </head>
+                <body>
+                    <!--Main canvas-->
+                    <div id="chart-container" data-loaded="false">
+                        <div class="jumbotron">
+                            <div class="container">
+                                <h1>Welcome to MPAT </h1>
+                                <h2>Mainframe Program Analysis Tool</h2>
+
+                                <p>Choose an action on navigation bar to start.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  Modal -->
+                    <div class="modal modal-build fade" id="modal-successor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Build Successor
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="ipt-build-successor" class="form-control" type="text" required="required" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="submit-build-successor" class="btn btn-primary">
+                                        <i class="fa fa-check-circle"></i>Build
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+                    <!--  Modal -->
+                    <div class="modal modal-build fade" id="modal-predecessor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Build Predecessor
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="ipt-build-predecessor" class="form-control" type="text" required="required" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="submit-build-predecessor" class="btn btn-primary">
+                                        <i class="fa fa-check-circle"></i>Build
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+
+                    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailModalLabel">Node Detail</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="message-text" class="form-control-label">Rate</label>
+                                        <input class="form-control detail-field" id="details-rate" readonly="readonly">
+                                        <label for="message-text" class="form-control-label">Procs</label>
+                                        <textarea rows="4" cols="200" class="form-control detail-field" id="details-procs" readonly="readonly"></textarea>
+                                        <label for="message-text" class="form-control-label">Jcls</label>
+                                        <textarea rows="4" cols="200" class="form-control detail-field" id="details-jcls" readonly="readonly"></textarea>
+                                        <label for="message-text" class="form-control-label">Description</label>
+                                        <textarea rows="7" cols="200" class="form-control detail-field" id="details-desc" readonly="readonly"></textarea>
+                                        <text id="details-comment"></text>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal modal-build fade" id="locateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Locate Node
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="ipt-locate-node" class="form-control" type="text" required="required" />
+                                    <text id="locate-comment"></text>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="submit-locate-node" class="btn btn-primary">
+                                        <i class="fa fa-check-circle"></i>Locate
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+                </body>
+            </html>
+
+            <script>
+    $(function () {
+        
+    });
+            </script>
+
+
+
+            <!-- /.inner -->
+        </div>
+        <!-- /.outer -->
+    </div>
+    <!-- /#content -->
+    <div id="right" class="onoffcanvas is-right is-fixed bg-light" aria-expanded=false>
+        <a class="onoffcanvas-toggler" href="#right" data-toggle=onoffcanvas aria-expanded=false></a>
+        <br>
+        <br>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Warning!</strong> Best check yo self, you're not looking too good.
+        </div>
+        <!-- .well well-small -->
+        <div class="well well-small dark">
+            <ul class="list-unstyled">
+                <li>Visitor <span class="inlinesparkline pull-right">1,4,4,7,5,9,10</span></li>
+                <li>Online Visitor <span class="dynamicsparkline pull-right">Loading..</span></li>
+                <li>Popularity <span class="dynamicbar pull-right">Loading..</span></li>
+                <li>New Users <span class="inlinebar pull-right">1,3,4,5,3,5</span></li>
+            </ul>
+        </div>
+        <!-- /.well well-small -->
+        <!-- .well well-small -->
+        <div class="well well-small dark">
+            <button class="btn btn-block">Default</button>
+            <button class="btn btn-primary btn-block">Primary</button>
+            <button class="btn btn-info btn-block">Info</button>
+            <button class="btn btn-success btn-block">Success</button>
+            <button class="btn btn-danger btn-block">Danger</button>
+            <button class="btn btn-warning btn-block">Warning</button>
+            <button class="btn btn-inverse btn-block">Inverse</button>
+            <button class="btn btn-metis-1 btn-block">btn-metis-1</button>
+            <button class="btn btn-metis-2 btn-block">btn-metis-2</button>
+            <button class="btn btn-metis-3 btn-block">btn-metis-3</button>
+            <button class="btn btn-metis-4 btn-block">btn-metis-4</button>
+            <button class="btn btn-metis-5 btn-block">btn-metis-5</button>
+            <button class="btn btn-metis-6 btn-block">btn-metis-6</button>
+        </div>
+        <!-- /.well well-small -->
+        <!-- .well well-small -->
+        <div class="well well-small dark">
+            <span>Default</span><span class="pull-right"><small>20%</small></span>
+
+            <div class="progress xs">
+                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+            </div>
+            <span>Success</span><span class="pull-right"><small>40%</small></span>
+
+            <div class="progress xs">
+                <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+            </div>
+            <span>warning</span><span class="pull-right"><small>60%</small></span>
+
+            <div class="progress xs">
+                <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+            </div>
+            <span>Danger</span><span class="pull-right"><small>80%</small></span>
+
+            <div class="progress xs">
+                <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+            </div>
+        </div>
+    </div>
+    <!-- /#right -->
+</div>
+
+<!-- /#footer -->
+<!-- #helpModal -->
+<div id="helpModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- /#helpModal -->
+<!--Bootstrap -->
+<script src="./Scripts/bootstrap.js"></script>
+<!-- MetisMenu -->
+<script src="./Scripts/metismenu/metisMenu.js"></script>
+<!-- onoffcanvas -->
+<script src="./Scripts/onoffcanvas/onoffcanvas.js"></script>
+<!-- Screenfull -->
+<script src="./Scripts/screenfull/screenfull.js"></script>
+
+<!-- Metis core scripts -->
+<script src="./Scripts/metis/core.js"></script>
+<!-- Metis demo scripts -->
+<script src="./Scripts/metis/app.js"></script>
+
+
+
+<!--orgchart -->
+<script src="./Scripts/orgchart/orgchart.js"></script>
+
+<!--scrollTo -->
+<script src="./Scripts/scrollTo/jquery.scrollTo.js"></script>
+
+<script src="./Scripts/main.js"></script>
+</body>
+</html>
+

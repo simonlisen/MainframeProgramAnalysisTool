@@ -50,3 +50,7 @@ textarea {
 .lter {
     min-height: 900px;
 }
+
+.float-right {
+    float: right;
+}

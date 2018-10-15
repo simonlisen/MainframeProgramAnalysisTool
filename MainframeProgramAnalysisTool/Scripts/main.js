@@ -1,4 +1,6 @@
-﻿//clear the canvas
+﻿var oc = {};
+
+//clear the canvas
 function clearChart() {
     $('#chart-container').empty();
 }
@@ -9,13 +11,13 @@ var nodeTemplate = function (data) {
     if (data.title.charAt(0) == 'Y') {
         return `
         <div class="node-outer">
-        <div class="title">${data.name}<div class="info-btn btn btn-xs btn-success" data-toggle="modal" data-target="#detailModal" data-name="${data.name}" data-details="${data.title}" data-flag="Y">i</div></div>
+        <div class="title">${data.name}<div class="info-btn btn btn-xs btn-success float-right" data-toggle="modal" data-target="#detailModal" data-name="${data.name}" data-details="${data.title}" data-flag="Y">i</div></div>
         <div class="content">${data.title} </div>
       `;
     } else {
         return `
         <div class="node-outer">
-        <div class="title">${data.name}<div class="info-btn btn btn-xs btn-default" data-toggle="modal" data-target="#detailModal" data-name="${data.name}" data-details="${data.title}" data-flag="N">i</div></div>
+        <div class="title">${data.name}<div class="info-btn btn btn-xs btn-default float-right" data-toggle="modal" data-target="#detailModal" data-name="${data.name}" data-details="${data.title}" data-flag="N">i</div></div>
         <div class="content">${data.title} </div>
       `;
     }   
@@ -36,25 +38,38 @@ $(document).on('click', '#submit-build-successor', function () {
     event.preventDefault();    
     $('.modal-build').modal('hide')
     clearChart();  
-
     var filename = $('#ipt-build-successor').val().trim();
 
     $.ajax({
-        url: "/Build/GetDataByFileName?filename=" + filename,
+       // url: "/Build/GetDataByFileName?filename=" + filename,
+        url: "./Generated/" + filename + ".txt",
         type: 'GET',
         dataType: 'json',
         success: function (result) {
-            var jsonResult = JSON.parse(result);
-            $('#chart-container').css('text-align', 'left');
-            $('#chart-container').orgchart({
-                'data': jsonResult,
-                'nodeContent': 'title',//'title'
-                'direction': 'l2r',
-                'nodeTemplate': nodeTemplate,
-                'pan': true,
-                'zoom': true
-               
-            });
+            //var jsonResult = JSON.parse(result);
+            var jsonResult = result;
+            var chart = $('#chart-container');
+            chart.css('text-align', 'left');
+            if (chart.attr('data-loaded') == 'false') {
+                oc = $('#chart-container').orgchart({
+                    'data': jsonResult,
+                    'nodeContent': 'title',//'title'
+                    'direction': 'l2r',
+                    'nodeTemplate': nodeTemplate,
+                    'pan': true,
+                    'zoom': true
+                });
+                chart.attr('data-loaded', 'true');
+            } else {
+                oc.init({
+                    'data': jsonResult,
+                    'nodeContent': 'title',//'title'
+                    'direction': 'l2r',
+                    'nodeTemplate': nodeTemplate,
+                    'pan': true,
+                    'zoom': true                   
+                });
+            }                       
             $('.orgchart').addClass('noncollapsable');           
         }        
     });
@@ -69,27 +84,42 @@ $(document).on('click', '#submit-build-predecessor', function () {
     $('.modal-build').modal('hide')
     clearChart();
 
-    var filename = $('#ipt-build-predecessor').val().trim();
+    var filename = $('#ipt-build-predecessor').val().trim(); 
 
     $.ajax({
-        url: "/Build/GetDataByFileName?filename=" + filename,
+        // url: "/Build/GetDataByFileName?filename=" + filename,
+        url: "./Generated/" + filename + ".txt",
         type: 'GET',
         dataType: 'json',
         success: function (result) {
-            var jsonResult = JSON.parse(result);
-            $('#chart-container').css('text-align', 'right');
-            $('#chart-container').orgchart({
-                'data': jsonResult,
-                'nodeContent': 'title',//'title'
-                'direction': 'r2l',
-                'nodeTemplate': nodeTemplate,
-                'pan': true,
-                'zoom': true
-
-            });
+            //var jsonResult = JSON.parse(result);
+            var jsonResult = result;
+            var chart = $('#chart-container');
+            chart.css('text-align', 'right');
+            if (chart.attr('data-loaded') == 'false') {
+                oc = $('#chart-container').orgchart({
+                    'data': jsonResult,
+                    'nodeContent': 'title',//'title'
+                    'direction': 'r2l',
+                    'nodeTemplate': nodeTemplate,
+                    'pan': true,
+                    'zoom': true
+                });
+                chart.attr('data-loaded', 'true');
+            } else {
+                oc.init({
+                    'data': jsonResult,
+                    'nodeContent': 'title',//'title'
+                    'direction': 'r2l',
+                    'nodeTemplate': nodeTemplate,
+                    'pan': true,
+                    'zoom': true
+                });
+            }
             $('.orgchart').addClass('noncollapsable');
         }
     });
+
 
 });
 
