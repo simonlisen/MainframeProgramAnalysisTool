@@ -36,6 +36,9 @@
     <!-- orgchart stylesheet -->
     <link rel="stylesheet" href="./Content/orgchart/orgchart.css">
 
+    <!-- customized stylesheet -->
+    <link rel="stylesheet" href="./Content/Site.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -99,7 +102,7 @@
                             </li>
                             <li><a href="#" data-toggle="modal" data-target="#locateModal">Locate</a></li>
 
-                            <li><a href="/Admin/Validation">Admin</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#adminModal">Admin</a></li>
 
                         </ul>
                         <!-- /.nav -->
@@ -193,7 +196,7 @@
 
 
                     <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog" style="width:1000px;" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="detailModalLabel">Node Detail</h5>
@@ -238,6 +241,113 @@
                                 <div class="modal-footer">
                                     <button type="button" id="submit-locate-node" class="btn btn-primary">
                                        Locate
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+
+                    <div class="modal modal-build fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" style="width:1000px;"> <!--style="width:1000px;"-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        <b>Admin Settings</b>
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <!--<h3 class="no-margin">Initial Parm</h3>-->
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">Creat Folder JOBNAME:</label>
+                                                    <!--<input class="form-control detail-field" id="details-rate">-->
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-jobname"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">Generate Proglist:</label>
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-proglist"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">High Qualify 1:</label>
+                                                    <input class="form-control detail-field" id="admin-hq1" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">High Qualify 2:</label>
+                                                    <input class="form-control detail-field" id="admin-hq2" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">Language Rule:</label>
+
+                                                    <div> COBOL: <input type="checkbox" id="admin-check-cobol"> </div>
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-cobol"></textarea>
+
+                                                    <div> FSA: <input type="checkbox" id="admin-check-fsa"> </div>
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-fsa"></textarea>
+
+                                                    <div> PLI: <input type="checkbox" id="admin-check-pli"> </div>
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-pli"></textarea>
+
+                                                    <div> New: <input type="checkbox" id="admin-check-new"> </div>
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-new"></textarea>
+                                                </div>
+
+                                                <text id="admin-comment"></text>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <!--<h3 class="no-margin">Initial Parm</h3>-->
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">CICS Parm:</label>
+                                                    <!--<input class="form-control detail-field" id="details-rate">-->
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-cics"></textarea>
+                                                </div>
+                                              
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">JCL#LIB:</label>
+                                                    <input class="form-control detail-field" id="admin-jcl" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">PROCLIST:</label>
+                                                    <input class="form-control detail-field" id="admin-proclist" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">SRC#LIST:</label>
+                                                    <!--<input class="form-control detail-field" id="details-rate">-->
+                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-srclist"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">Personal Lib:</label>
+                                                    <input class="form-control detail-field" id="admin-personallib" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <br />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">Mainframe ID:</label>
+                                                    <input class="form-control detail-field" id="admin-mf-id" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="form-control-label">Mainframe Password:</label>
+                                                    <input class="form-control detail-field" type="password" id="admin-mf-psw" />
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="submit-locate-node" class="btn btn-primary">
+                                        Locate
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancel

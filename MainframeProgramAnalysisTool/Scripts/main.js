@@ -175,3 +175,37 @@ $('#detailModal').on('show.bs.modal', function (event) {
     }    
 })
 
+//set up defalut values
+$('#adminModal').on('show.bs.modal', function (event) {
+
+    var jobname = "//YXXCALLI"
+    var proglist = "//YXXCALLN"
+    var hq1 = "COW"
+    var hq2 = "CCAS"
+    var langrule_cobol = "SRCHFOR"
+    var langrule_fsa = "SRCHFOR"
+    var langrule_pli = "SRCHFOR"
+    var langrule_new = "SRCHFOR"
+    var cics = "/DBASE"
+    var jcl = "TCOCM"
+    var proclist = "TCOCM"
+     //use \n for line break:
+    var srclist = "COW.PL1.SRC\nCOW.COB.SRC\nTCOCM.SUBQ.SEC0.BASE0.SRC"
+  
+
+    var modal = $(this)
+    modal.find('.modal-body #admin-jobname').val(jobname)
+    modal.find('.modal-body #admin-proglist').val(proglist)
+    modal.find('.modal-body #admin-hq1').val(hq1)
+    modal.find('.modal-body #admin-hq2').val(hq2)
+    modal.find('.modal-body #admin-langrule-cobol').val(langrule_cobol)
+    modal.find('.modal-body #admin-langrule-fsa').val(langrule_fsa)
+    modal.find('.modal-body #admin-langrule-pli').val(langrule_pli)
+    modal.find('.modal-body #admin-langrule-new').val(langrule_new)
+    modal.find('.modal-body #admin-cics').val(cics)
+    modal.find('.modal-body #admin-jcl').val(jcl)
+    modal.find('.modal-body #admin-proclist').val(proclist)
+    modal.find('.modal-body #admin-srclist').val(srclist)
+
+
+})
