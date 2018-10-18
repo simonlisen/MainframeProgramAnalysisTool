@@ -76,7 +76,7 @@
 
                     </div>
                     <div id="nav_marketing" class="citi-nav-desktop">	
-                    <div class="container">		
+                    <div class="">		
                         <!-- .nav -->
                         <ul class="nav navbar-nav">
 
@@ -264,95 +264,118 @@
                                         &times;
                                     </button>
                                     <h4 class="modal-title" id="myModalLabel">
-                                        <b>Admin Settings</b>
+                                        <b>Admin Setting</b>
                                     </h4>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group row">
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <!--<h3 class="no-margin">Initial Parm</h3>-->
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">Creat Folder JOBNAME:</label>
-                                                    <!--<input class="form-control detail-field" id="details-rate">-->
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-jobname"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">Generate Proglist:</label>
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-proglist"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">High Qualify 1:</label>
-                                                    <input class="form-control detail-field" id="admin-hq1" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">High Qualify 2:</label>
-                                                    <input class="form-control detail-field" id="admin-hq2" />
-                                                </div>
+                                        <div class="col-md-12">                                          
+                                                <h3 class="no-margin">General Setting</h3>                                              
                                                 <div class="form-group">
                                                     <label for="message-text" class="form-control-label">Language Rule:</label>
-
-                                                    <div> COBOL: <input type="checkbox" id="admin-check-cobol"> </div>
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-cobol"></textarea>
-
-                                                    <div> FSA: <input type="checkbox" id="admin-check-fsa"> </div>
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-fsa"></textarea>
-
-                                                    <div> PLI: <input type="checkbox" id="admin-check-pli"> </div>
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-pli"></textarea>
-
-                                                    <div> New: <input type="checkbox" id="admin-check-new"> </div>
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-new"></textarea>
-                                                </div>
-
-                                                <text id="admin-comment"></text>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div> COBOL: <input type="checkbox" id="admin-check-cobol"> </div>
+                                                            <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-cobol"></textarea>
+                                                            <div> PLI: <input type="checkbox" id="admin-check-pli"> </div>
+                                                            <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-pli"></textarea>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div> FSA: <input type="checkbox" id="admin-check-fsa"> </div>
+                                                            <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-fsa"></textarea>
+                                                            <div> New: <input type="checkbox" id="admin-check-new"> </div>
+                                                            <textarea rows="2" cols="400" class="form-control detail-field" id="admin-langrule-new"></textarea>
+                                                        </div>
+                                                    </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">ID:</label>
+                                                        <input class="form-control detail-field" id="admin-mf-id" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">Password:</label>
+                                                        <input class="form-control detail-field" type="password" id="admin-mf-psw" />
+                                                    </div>
+                                                </div>                                                  
+
+                                                </div>
+                                        </div>
+                                        <!--<hr />-->
+                                        <div class="">   
+                                            <div class="col-md-12">
+                                                <h3 class="no-margin">Remote Setting </h3>
+                                            </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">Creat Folder JOBNAME:</label>
+                                                        <!--<input class="form-control detail-field" id="details-rate">-->
+                                                        <textarea rows="2" cols="400" class="form-control detail-field" id="admin-jobname"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">High Qualify 1:</label>
+                                                        <input class="form-control detail-field" id="admin-hq1" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">CICS Parm:</label>
+                                                        <!--<input class="form-control detail-field" id="details-rate">-->
+                                                        <textarea rows="2" cols="400" class="form-control detail-field" id="admin-cics"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">SRC#LIST:</label>
+                                                        <!--<input class="form-control detail-field" id="details-rate">-->
+                                                        <textarea rows="2" cols="400" class="form-control detail-field" id="admin-srclist"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">Generate Proglist:</label>
+                                                        <textarea rows="2" cols="400" class="form-control detail-field" id="admin-proglist"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">High Qualify 2:</label>
+                                                        <input class="form-control detail-field" id="admin-hq2" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">JCL#LIB:</label>
+                                                        <input class="form-control detail-field" id="admin-jcl" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">PROCLIST:</label>
+                                                        <input class="form-control detail-field" id="admin-proclist" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="form-control-label">Personal Lib:</label>
+                                                        <input class="form-control detail-field" id="admin-personallib" />
+                                                    </div>
+                                                </div>                                           
+
+                                            </div>
+                                      
+                                        <div class="row col-md-12">
 
                                             <div class="col-md-6">
-                                                <!--<h3 class="no-margin">Initial Parm</h3>-->
+                                                <h3 class="no-margin">Generate Setting</h3>                                       
                                                 <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">CICS Parm:</label>
-                                                    <!--<input class="form-control detail-field" id="details-rate">-->
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-cics"></textarea>
+                                                    <label for="message-text" class="form-control-label">Program Name:</label>
+                                                    <input class="form-control detail-field" id="admin-progname" />
                                                 </div>
-                                              
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">JCL#LIB:</label>
-                                                    <input class="form-control detail-field" id="admin-jcl" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">PROCLIST:</label>
-                                                    <input class="form-control detail-field" id="admin-proclist" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">SRC#LIST:</label>
-                                                    <!--<input class="form-control detail-field" id="details-rate">-->
-                                                    <textarea rows="2" cols="400" class="form-control detail-field" id="admin-srclist"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">Personal Lib:</label>
-                                                    <input class="form-control detail-field" id="admin-personallib" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <br />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">Mainframe ID:</label>
-                                                    <input class="form-control detail-field" id="admin-mf-id" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="form-control-label">Mainframe Password:</label>
-                                                    <input class="form-control detail-field" type="password" id="admin-mf-psw" />
-                                                </div>
-                                              
+                                           
                                             </div>
+                                           
                                         </div>
                                       
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" id="submit-locate-node" class="btn btn-primary">
-                                        Locate
+                                    <button type="button" id="btn-admin-generate" class="btn btn-warning">
+                                        <i class="fa fa-gears"></i>&nbsp;Generate
+                                    </button>
+                                    <button type="button" id="btn-admin-apply" class="btn btn-primary">
+                                        <i class="fa fa-check"></i>&nbsp;Apply
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancel

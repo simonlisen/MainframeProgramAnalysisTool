@@ -139,7 +139,7 @@ $(document).on('click', '#submit-locate-node', function () {
         target.closest('.title').css('background-color','rgba(255, 0, 0, 0.8)');
         $('.modal-build').modal('hide');
     } else {
-        $('#locate-comment').html("Node not found.");
+        $('#locate-comment').html("Program not found.");
     }   
     
 });
