@@ -165,7 +165,6 @@
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Content\font-awesome\HELP-US-OUT.txt" />
     <Content Include="Content\img\bg_1.png" />
     <Content Include="Content\img\citi-blue-bar.jpg" />
     <Content Include="Content\img\citi-logo-no-r.png" />
