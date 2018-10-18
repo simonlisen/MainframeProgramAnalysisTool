@@ -15,11 +15,16 @@
     
     <!--jQuery ********** -->
     <script src="./Scripts/jquery-1.10.2.js"></script>
+
+    <!-- Citi favicon -->
+    <link rel="icon" type="image/svg" href="./favicon.ico">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./Content/bootstrap.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./Content/font-awesome/css/font-awesome.css">
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
 
     <!-- Metis core stylesheet -->
     <link rel="stylesheet" href="./Content/metis/main.css">
@@ -55,58 +60,58 @@
     <div class="bg-dark dk" id="wrap">
         <div id="top">
             <!-- .navbar -->
-            <nav class="navbar navbar-inverse navbar-static-top">
+            <nav class="navbar navbar-default navbar-static-top">
                 <div class="container-fluid">
 
-
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <span class="navbar-header">                       
-                        <a href="#" class="navbar-brand"><img src="./Content/img/logo.png" alt=""></a>
-                    </span>
-                    
-                    <div class="topnav">
-                        <div class="btn-group">
-                            <a data-placement="bottom" data-original-title="Clear Chart" data-toggle="tooltip"
-                               class="btn btn-default btn-sm" id="clearChart">
-                                <!--<i class="fa fa-address-book-o"></i>-->
-                                Clear Chart
-                            </a>
-                        </div>
-                        <div class="btn-group">
-                            <a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip"
-                               class="btn btn-default btn-sm" id="toggleFullScreen">
-                                <!--<i class="fa fa-check-circle"></i>-->
-                                Toggle Fullscreen
-                            </a>
-                        </div>
-
+                    <span id="header-span" class="navbar-header">                       
+                        <a href="#" class="navbar-brand"><!--<img src="./Content/img/logo.png" alt="">-->
+                        <span id="title-text">Mainframe Program <br/> &nbsp;&nbsp;Flow Analyzer</span>
+                            <!--<span id="title-text">Mainframe Program Flow Analyzer</span>-->
+                        </a>
+                        <img id="citi-logo" alt="citi-logo" src="./Content/img/citi-logo-no-r.png">
+                    </span>              
+                   
+                    <div class="collapse navbar-collapse navbar-ex1-collapse citi-blue-bar">
 
                     </div>
-
-
-
-
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-
+                    <div id="nav_marketing" class="citi-nav-desktop">	
+                    <div class="container">		
                         <!-- .nav -->
                         <ul class="nav navbar-nav">
 
                             <li class='dropdown '>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Actions <b class="caret"></b>
+                                    Action <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#" data-toggle="modal" data-target="#modal-successor">Build Successor</a></li>
                                     <li><a href="#" data-toggle="modal" data-target="#modal-predecessor">Build Predecessor</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#" data-toggle="modal" data-target="#locateModal">Locate</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#locateModal">Search</a></li>
 
                             <li><a href="#" data-toggle="modal" data-target="#adminModal">Admin</a></li>
 
                         </ul>
                         <!-- /.nav -->
-                    </div>
+                        <div class="topnav">
+                            <div class="btn-group">
+                                <a data-placement="bottom" data-original-title="Clear Chart" data-toggle="tooltip"
+                                   class="btn btn-default btn-sm" id="clearChart">
+                                    <i class="fa fa-eraser"></i>
+                                    <!--Clear Chart-->
+                                </a>
+                            </div>
+                            <div class="btn-group">
+                                <a data-placement="bottom" data-original-title="Toggle Fullscreen" data-toggle="tooltip"
+                                   class="btn btn-default btn-sm" id="toggleFullScreen">
+                                    <i class="fa fa-arrows-alt"></i>
+                                    <!--Toggle Fullscreen-->
+                                </a>
+                            </div>
+                        </div>
+                        </div></div>
                 </div>
                 <!-- /.container-fluid -->
             </nav>
@@ -131,10 +136,10 @@
                     <div id="chart-container" data-loaded="false">
                         <div class="jumbotron">
                             <div class="container">
-                                <h1>Welcome to MPAT </h1>
-                                <h2>Mainframe Program Analysis Tool</h2>
+                                <h1>Welcome TO MPFA </h1>
+                                <h2>Mainframe Program Flow Analyzer</h2>
 
-                                <p>Choose an action on navigation bar to start.</p>
+                                <!--<p>Choose an action on navigation bar to start.</p>-->
                             </div>
                         </div>
                     </div>
@@ -199,7 +204,7 @@
                         <div class="modal-dialog" style="width:1000px;" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="detailModalLabel">Node Detail</h5>
+                                    <h5 class="modal-title" id="detailModalLabel">Detail</h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -231,7 +236,7 @@
                                         &times;
                                     </button>
                                     <h4 class="modal-title" id="myModalLabel">
-                                        Locate Node
+                                        Program Name
                                     </h4>
                                 </div>
                                 <div class="modal-body">
@@ -240,7 +245,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" id="submit-locate-node" class="btn btn-primary">
-                                       Locate
+                                        Search
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Cancel

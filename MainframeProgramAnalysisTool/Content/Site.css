@@ -63,3 +63,25 @@ textarea {
     margin-top: 0px;
     margin-bottom: 15px;
 }
+
+.citi-blue-bar {
+    /*height: 86px;*/
+    background: url(img/citi-blue-bar.jpg) repeat-x;
+}
+
+#citi-logo {
+    float: right;
+    margin-top:1px;
+}
+
+#header-span{
+    width:100%;
+}
+
+#title-text{
+    color: white;
+    font-family:'Adobe Gothic Std';
+    font-size: medium;
+    margin-top:5px !important;
+    margin-left:5px;
+}
