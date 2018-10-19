@@ -209,3 +209,60 @@ $('#adminModal').on('show.bs.modal', function (event) {
 
 
 })
+
+//admin pop-up click events
+//generate
+$(document).on('click', '#submit-locate-node', function () {
+    event.stopPropagation();
+    event.preventDefault();
+
+    //*********to be implemented
+
+});
+
+//apply
+$(document).on('click', '#btn-admin-apply', function () {
+    event.stopPropagation();
+    event.preventDefault();
+
+    //.txt file content format:
+    //{Language Rule}{ID}{Password}{Creat Folder JOBNAME}{Generate Proglist}{High Qualify 1}{High Qualify 2}{CICS Parm}{JCL#LIB}{PROCLIST}{SRC#LIST}{Personal Lib}{Program Name}
+
+    var content = "";
+    var langrule_content = "";
+    if ($('#admin-check-cobol').is(':checked')) {
+        langrule_content += $('#admin-langrule-cobol').val();
+    }
+    if ($('#admin-check-pli').is(':checked')) {
+        langrule_content += $('#admin-langrule-pli').val();
+    }
+    if ($('#admin-check-fsa').is(':checked')) {
+        langrule_content += $('#admin-langrule-fsa').val();
+    }
+    if ($('#admin-check-new').is(':checked')) {
+        langrule_content += $('#admin-langrule-new').val();
+    }
+
+    content += formatValue(langrule_content);
+    content += formatValue($('#admin-mf-id').val());
+    content += formatValue($('#admin-mf-psw').val());
+    content += formatValue($('#admin-jobname').val());
+    content += formatValue($('#admin-proglist').val());
+    content += formatValue($('#admin-hq1').val());
+    content += formatValue($('#admin-hq2').val());
+    content += formatValue($('#admin-cics').val());
+    content += formatValue($('#admin-jcl').val());
+    content += formatValue($('#admin-proclist').val());
+    content += formatValue($('#admin-srclist').val());
+    content += formatValue($('#admin-personallib').val());
+    content += formatValue($('#admin-progname').val());
+
+    var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "Config.txt");
+
+    $('.modal-build').modal('hide');
+});
+
+function formatValue(str) {
+    return "{" + str + "}";
+}
